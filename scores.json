@@ -1,0 +1,16 @@
+{
+    "scores": [
+        {
+            "user": "Pepe",
+            "score": 4
+        },
+        {
+            "user": "Jose",
+            "score": 70
+        },
+        {
+            "user": "Julian",
+            "score": 50
+        }
+    ]
+}
