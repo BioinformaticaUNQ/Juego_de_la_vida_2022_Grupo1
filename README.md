@@ -5,6 +5,12 @@ Este juego de la vida es un juego de preguntas sobre Biología, este juego const
 * [Ver scores](#como-ver-scores)
 * [Jugar](#como-jugar)
 
+## Prerrequisitos
+
+Para poder jugar el juego los requisitos son los siguientes:
+
+* Tener Python instalado
+
 ## Niveles de dificultad:
 
 El juego tiene 3 niveles de dificultad
