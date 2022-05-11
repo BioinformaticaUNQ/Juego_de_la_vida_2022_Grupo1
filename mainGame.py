@@ -1,5 +1,8 @@
 import json
 
+def getDifficulty(question):
+	return question.get("difficulty")
+
 def getInput(text, answers, printQuestion = True):
 	if printQuestion:
 		inputText = text 
@@ -14,19 +17,30 @@ def getInput(text, answers, printQuestion = True):
 def play(difficulty, playerName):
     print(f"El modo de juego es preguntas con dificultad {difficulty}")
 
-    json_file = open('preguntas.json')
-    questions_json = json.load(json_file)
-    questions = questions_json.get('questions')
+    jsonFile = open('preguntas.json')
+    questionsJson = json.load(jsonFile)
+    questions = questionsJson.get('questions')
+    questions.sort(key=getDifficulty)
     responses = []
+    gameOver = False
 
     print('Bienvenido al juego de la vida')
     input('Presione Enter para la siguiente pregunta')
 
     for question in questions:
-        responses.append(askQuestion(question))
-    correct_answers = len([response for response in responses if response])
-    print(f'Juego terminado, respondiste: {correct_answers} respuestas correctamente')
-    saveScore(playerName, correct_answers)
+    	response = askQuestion(question)
+    	shouldContinue = globals()[f"difficulty{difficulty}"](response, responses, questions)
+    	if not shouldContinue:
+    		gameOver = True
+    		print("Perdiste :(")
+    		break
+    	responses.append(response)
+
+    if not gameOver:
+    	print("Felicidades, terminaste el juego!")
+    qtyCorrectAnswers = len([response for response in responses if response])
+    print(f'Juego terminado, respondiste: {qtyCorrectAnswers} respuestas correctamente')
+    saveScore(playerName, qtyCorrectAnswers)
 
 def askQuestion(question: dict):
 	texto = question.get('question')
@@ -40,11 +54,24 @@ def askQuestion(question: dict):
 
 def saveScore(user, score):
     with open('scores.json','r+') as file:
-        file_data = json.load(file)
-        new_data = {
+        fileData = json.load(file)
+        newData = {
             "user": user,
             "score": score
         }
-        file_data["scores"].append(new_data)
+        fileData["scores"].append(newData)
         file.seek(0)
-        json.dump(file_data, file, indent = 4)
+        json.dump(fileData, file, indent = 4)
+
+def difficulty1(response, previousResponses, questions):
+	return True
+
+def difficulty2(response, previousResponses, questions):
+	responses = previousResponses.copy()
+	responses.append(response)
+	qtyWrongAnswers = len([response for response in responses if not response])
+	print(qtyWrongAnswers)
+	return qtyWrongAnswers < (len(questions)/2)
+
+def difficulty3(response, previousResponses, questions):
+	return response

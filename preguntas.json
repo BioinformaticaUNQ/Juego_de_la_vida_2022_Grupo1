@@ -1,11 +1,22 @@
 {
-    "questions":[
-        
+    "questions":[ 
+        {
+            "question": "En 1969, Robert Whittaker clasifico a los seres vivos en:",
+            "answers": ["2 reinos","5 reinos","4 reinos","9 reinos"],
+            "correct": 1,
+            "difficulty": 3
+        },
         {
             "question": "En 1969, Robert Whittaker clasifico a los seres vivos en:",
             "answers": ["2 reinos","5 reinos","4 reinos","9 reinos"],
             "correct": 1,
             "difficulty": 1
+        },
+        {
+            "question": "En 1969, Robert Whittaker clasifico a los seres vivos en:",
+            "answers": ["2 reinos","5 reinos","4 reinos","9 reinos"],
+            "correct": 1,
+            "difficulty": 2
         }
     ]
 }
