@@ -17,7 +17,7 @@ def getInput(text, answers, printQuestion = True):
 def play(difficulty, playerName):
     print(f"El modo de juego es preguntas con dificultad {difficulty}")
 
-    jsonFile = open('preguntas.json')
+    jsonFile = open('questions.json')
     questionsJson = json.load(jsonFile)
     questions = questionsJson.get('questions')
     questions.sort(key=getDifficulty)
