@@ -12,12 +12,12 @@ def getInput(text, answers, printQuestion = True):
 	if not response.isdigit() or int(response) > len(answers) or int(response) <= 0:
 		print("Seleciona una opción valida")
 		getInput(text, answers, printQuestion = False)
-	return int(response)
+	return int(response) - 1
 
 def play(difficulty, playerName):
     print(f"El modo de juego es preguntas con dificultad {difficulty}")
 
-    jsonFile = open('preguntas.json')
+    jsonFile = open('questions.json')
     questionsJson = json.load(jsonFile)
     questions = questionsJson.get('questions')
     questions.sort(key=getDifficulty)
