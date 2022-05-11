@@ -1,5 +1,12 @@
 import json
 
+def getQuestions():
+	jsonFile = open('questions.json')
+	questionsJson = json.load(jsonFile)
+	questions = questionsJson.get('questions')
+	questions.sort(key=getDifficulty)
+	return questions
+
 def getDifficulty(question):
 	return question.get("difficulty")
 
@@ -14,13 +21,17 @@ def getInput(text, answers, printQuestion = True):
 		getInput(text, answers, printQuestion = False)
 	return int(response)
 
+def endGame(playerName, responses, gameOver):
+	if not gameOver:
+		print("Felicidades, terminaste el juego!")
+	qtyCorrectAnswers = len([response for response in responses if response])
+	print(f'Juego terminado, respondiste: {qtyCorrectAnswers} respuestas correctamente')
+	saveScore(playerName, qtyCorrectAnswers)
+
 def play(difficulty, playerName):
     print(f"El modo de juego es preguntas con dificultad {difficulty}")
 
-    jsonFile = open('questions.json')
-    questionsJson = json.load(jsonFile)
-    questions = questionsJson.get('questions')
-    questions.sort(key=getDifficulty)
+    questions = getQuestions()
     responses = []
     gameOver = False
 
@@ -35,12 +46,7 @@ def play(difficulty, playerName):
     		print("Perdiste :(")
     		break
     	responses.append(response)
-
-    if not gameOver:
-    	print("Felicidades, terminaste el juego!")
-    qtyCorrectAnswers = len([response for response in responses if response])
-    print(f'Juego terminado, respondiste: {qtyCorrectAnswers} respuestas correctamente')
-    saveScore(playerName, qtyCorrectAnswers)
+    endGame(playerName, responses, gameOver)
 
 def askQuestion(question: dict):
 	texto = question.get('question')
