@@ -16,11 +16,15 @@ parser.add_argument('-m', '--mode',
                              1 = juego(Para responder las preguntas), 
                              2 = puntuación (Para ver las puntuaciones del juego)""",
                     required=True)
+parser.add_argument('-u', '--user',
+                    type=str,
+                    help="""Indica el nombre del jugador""",
+                    required=True)
 
 args = parser.parse_args()
 
 if args.mode == 1:
-    mainGame.play(args.difficulty)
+    mainGame.play(args.difficulty, args.user)
 else:
     scores.seeScores()
     
