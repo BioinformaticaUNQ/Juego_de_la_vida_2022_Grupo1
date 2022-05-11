@@ -1,4 +1,12 @@
 import json
+import os
+
+def clearConsole():
+    if os.name == 'nt':
+        clear = lambda: os.system('cls')
+    else:
+        clear = lambda: os.system('clear')
+    clear()
 
 def getQuestions():
 	jsonFile = open('questions.json')
@@ -29,6 +37,7 @@ def endGame(playerName, responses, gameOver):
 	saveScore(playerName, qtyCorrectAnswers)
 
 def play(difficulty, playerName):
+    clearConsole()
     print(f"El modo de juego es preguntas con dificultad {difficulty}")
 
     questions = getQuestions()
@@ -38,6 +47,8 @@ def play(difficulty, playerName):
     print('Bienvenido al juego de la vida')
     input('Presione Enter para la siguiente pregunta')
 
+    clearConsole()
+
     for question in questions:
     	response = askQuestion(question)
     	shouldContinue = globals()[f"difficulty{difficulty}"](response, responses, questions)
@@ -46,6 +57,7 @@ def play(difficulty, playerName):
     		print("Perdiste :(")
     		break
     	responses.append(response)
+    	clearConsole()
     endGame(playerName, responses, gameOver)
 
 def askQuestion(question: dict):
