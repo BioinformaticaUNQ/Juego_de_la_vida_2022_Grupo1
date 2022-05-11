@@ -4,7 +4,7 @@ def seeScores():
     with open('scores.json') as f:
         data = json.load(f)
 
-    data["scores"].sort(key=lambda x: x["score"])
+    data["scores"].sort(key=lambda x: x["score"], reverse=True)
 
     i = 1
     for score in data["scores"]:
