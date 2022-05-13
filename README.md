@@ -37,6 +37,6 @@ No podes responder mal ninguna pregunta
 
 1. Clonar el proyecto
 2. Con la consola hacer un cd hasta el path donde esta el proyecto clonado
-3. Correr el siguiente comando: ``` python juegovida.py -d DIFICULTAD(1,2 o 3) -m 1 -u userName ```
+3. Correr el siguiente comando: ``` python juegovida.py -m MODO(1 o 2, para jugar o ver puntuación) -d DIFICULTAD(1,2 o 3)
 
 ![image](https://user-images.githubusercontent.com/13736226/167754707-061a7c9e-f4c9-4fd9-95ae-2c651f520d09.png)
