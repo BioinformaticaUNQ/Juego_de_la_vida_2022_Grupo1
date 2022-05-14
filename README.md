@@ -55,4 +55,4 @@ Para agregar preguntas solo se necesita ingresar al archivo [questions.json](htt
 }
  ```
  
- En el campo question va la pregunta, en el campo answers es un array con las opciones, podes poner la cantidad de opciones que quieras, en el campo correct indicas que opcion es la correcta y en difficulty la dificultad de la pregunta
+ En el campo question va la pregunta, en el campo answers es un array de strings con las opciones, podes poner la cantidad de opciones que quieras, en el campo correct indicas que opcion es la correcta en un integer y en difficulty la dificultad de la pregunta, esta última tambien es un integer
