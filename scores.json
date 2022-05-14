@@ -2,87 +2,118 @@
     "scores": [
         {
             "user": "Pepe",
-            "score": 4
+            "score": 4,
+            "difficulty": 1
         },
         {
             "user": "Jose",
-            "score": 70
+            "score": 70,
+            "difficulty": 1
         },
         {
             "user": "Julian",
-            "score": 50
+            "score": 50,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 1
+            "score": 1,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 3
+            "score": 3,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 3
+            "score": 3,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 4
+            "score": 4,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 0
+            "score": 0,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 6
+            "score": 6,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 9
+            "score": 9,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 9
+            "score": 9,
+            "difficulty": 1
         },
         {
             "user": "cpi",
-            "score": 10
+            "score": 10,
+            "difficulty": 1
+        },
+        {
+            "user": "seba",
+            "score": 2,
+            "difficulty": 3
+        },
+        {
+            "user": "seba 2",
+            "score": 3,
+            "difficulty": 3
         }
     ]
 }

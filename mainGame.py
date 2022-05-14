@@ -29,13 +29,13 @@ def getInput(text, answers, printQuestion = True):
 		getInput(text, answers, printQuestion = False)
 	return int(response)
 
-def endGame(responses, gameOver):
+def endGame(responses, gameOver, difficulty):
 	if not gameOver:
 		print("Felicidades, terminaste el juego!")
 	qtyCorrectAnswers = len([response for response in responses if response])
 	print(f'Juego terminado, respondiste: {qtyCorrectAnswers} respuestas correctamente')
 	playerName = input('Ingresa tu nombre para guardar tu puntaje:')
-	saveScore(playerName, qtyCorrectAnswers)
+	saveScore(playerName, qtyCorrectAnswers, difficulty)
 
 def play(difficulty):
     clearConsole()
@@ -60,7 +60,7 @@ def play(difficulty):
     		break
     	responses.append(response)
     	clearConsole()
-    endGame(responses, gameOver)
+    endGame(responses, gameOver, difficulty)
 
 def feedback(question, response):
 	if response:
@@ -80,12 +80,13 @@ def askQuestion(question: dict):
 	inputResponse = getInput(inputText, question['answers'])
 	return inputResponse == question["correct"]
 
-def saveScore(user, score):
+def saveScore(user, score, difficulty):
     with open('scores.json','r+') as file:
         fileData = json.load(file)
         newData = {
             "user": user,
-            "score": score
+            "score": score,
+            "difficulty": difficulty
         }
         fileData["scores"].append(newData)
         file.seek(0)
