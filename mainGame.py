@@ -1,5 +1,6 @@
 import json
 import os
+import random
 
 def clearConsole():
     if os.name == 'nt':
@@ -12,6 +13,7 @@ def getQuestions():
 	jsonFile = open('questions.json')
 	questionsJson = json.load(jsonFile)
 	questions = questionsJson.get('questions')
+	random.shuffle(questions)
 	questions.sort(key=getDifficulty)
 	return questions
 
