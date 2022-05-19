@@ -4,6 +4,7 @@ Este juego de la vida es un juego de preguntas sobre Biología, este juego const
 
 * [Ver scores](#como-ver-scores)
 * [Jugar](#como-jugar)
+* [Agregar preguntas](#como-agregar-preguntas)
 
 ## Prerrequisitos
 
@@ -55,4 +56,4 @@ Para agregar preguntas solo se necesita ingresar al archivo [questions.json](htt
 }
  ```
  
- En el campo question va la pregunta, en el campo answers es un array de strings con las opciones, podes poner la cantidad de opciones que quieras, en el campo correct indicas que opcion es la correcta en un integer y en difficulty la dificultad de la pregunta, esta última tambien es un integer
+ En el campo question va la pregunta, en el campo answers es un array de strings con las opciones, podes poner la cantidad de opciones que quieras, en el campo correct indicas que opcion es la correcta con el indice de la misma en la lista de respuestas y en difficulty la dificultad de la pregunta, expresada en un numero del 1 al 3.
