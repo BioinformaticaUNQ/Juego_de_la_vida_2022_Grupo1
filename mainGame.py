@@ -2,6 +2,9 @@ import json
 import os
 import random
 
+score = 0
+correctAnswers = 0
+
 def clearConsole():
     if os.name == 'nt':
         clear = lambda: os.system('cls')
@@ -37,7 +40,7 @@ def endGame(responses, gameOver, difficulty):
 	qtyCorrectAnswers = len([response for response in responses if response])
 	print(f'Juego terminado, respondiste: {qtyCorrectAnswers} respuestas correctamente')
 	playerName = input('Ingresa tu nombre para guardar tu puntaje:')
-	saveScore(playerName, qtyCorrectAnswers, difficulty)
+	saveScore(playerName, score, difficulty)
 
 def play(difficulty):
     clearConsole()
@@ -45,7 +48,11 @@ def play(difficulty):
     print(f"La dificultad del juego será {difficulty}, ¿estás liste?")
 
     questions = getQuestions()
+    global score
+    global correctAnswers
     responses = []
+    score = 0
+    correctAnswers = 0
     gameOver = False
 
     input('Presione Enter para comenzar')
@@ -55,6 +62,7 @@ def play(difficulty):
     for question in questions:
     	response = askQuestion(question)
     	feedback(question, response)
+    	assignScore(response)
     	shouldContinue = globals()[f"difficulty{difficulty}"](response, responses, questions)
     	if not shouldContinue:
     		gameOver = True
@@ -64,13 +72,26 @@ def play(difficulty):
     	clearConsole()
     endGame(responses, gameOver, difficulty)
 
+def assignScore(validResponse):
+	global score
+	global correctAnswers
+
+	if validResponse and correctAnswers > 2:
+		score += 3
+		correctAnswers += 1
+	elif validResponse:
+		score += 1
+		correctAnswers += 1
+	elif not validResponse:
+		correctAnswers = 0
+
 def feedback(question, response):
 	if response:
 		print("!Respondiste correctamente!")
 	else:
 		print("Tu respuesta fue incorrecta")
 		print("La respuesta correcta era:", question["answers"][question["correct"]-1])
-	input('Presione enter para continuar')
+	input ('Presione enter para continuar')
 
 def askQuestion(question: dict):
 	texto = question.get('question')
